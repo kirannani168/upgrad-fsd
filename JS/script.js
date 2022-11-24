@@ -143,11 +143,38 @@
 //                  //Inner: RAvikiran Reddy
 
 //ForLoopsInObjects
-var obj = {
-  name: "Ravikiran",
+// var obj = {
+//   name: "Ravikiran",
+//   lastName: "Reddy",
+//   college: "RGUKT"
+// }
+// for(let i in obj){
+//   console.log(i+":"+ obj[i]);
+// }
+
+
+//CALL Method
+// var person = {
+//   firstName: "RAvikiran",
+//   lastName: "Balemla",
+//   get: function(){
+//     console.log("Outer: "+this.firstName+" "+this.lastName);
+//     var print = function(role){
+//       console.log("inner: "+this.firstName+" "+this.lastName+" Role: "+role);
+//     }.call(this, "Dev");
+//   }
+// }
+// console.log(person.get());
+
+//APPLY Method
+var person = {
+  firstName : "Ravikiran",
   lastName: "Reddy",
-  college: "RGUKT"
+  get: function(){
+    console.log("Outer: "+this.firstName+" "+this.lastName);
+    var print = function(role, tech){
+      console.log("Inner: "+this.firstName+" "+this.lastName+" "+tech+" "+role);
+    }.apply(this, ["Dev", "JS"]);
+  }
 }
-for(let i in obj){
-  console.log(i+":"+ obj[i]);
-}
+console.log(person.get());
